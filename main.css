@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700&display=swap");
 * {
   max-width: 100%;
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: "Overpass", sans-serif;
 }
 
 .main-area {
@@ -18,12 +20,13 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background-color: #141519;
 }
 
 .main-area .main {
   width: 24%;
   height: 50%;
-  background-color: #252d37;
+  background-color: #1f2630;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -55,16 +58,62 @@
           justify-content: space-between;
 }
 
+.main-area .main__rating-number {
+  color: #959eac;
+  font-weight: 600;
+}
+
+.main-area .main__rating-number:hover {
+  cursor: pointer;
+  background-color: #fb7413;
+  color: white;
+}
+
+.main-area .main__rating-selected {
+  background-color: #7c8898;
+  color: white;
+}
+
+.main-area .main__feedback {
+  width: 85%;
+  height: 85%;
+  display: none;
+  -ms-grid-rows: auto auto auto auto;
+      grid-template-rows: auto auto auto auto;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  text-align: center;
+}
+
+.main-area .main__feedback img {
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.main-area .main__feedback-box {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  width: 60%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0.5em;
+  border: none;
+  color: #fb7413;
+  border-radius: 1.5em;
+  background-color: #262f38;
+}
+
 .fs-reg {
   color: #959eac;
   font-weight: 400;
-  font-size: clamp(1.125em, 0.8em, 1.5em);
+  font-size: clamp(0.8em, 1em, 1.5em);
 }
 
 .fs-lg {
   color: white;
   font-weight: 700;
-  font-size: clamp(2em, 3.5em, 4em);
+  font-size: clamp(1.5em, 2em, 3em);
 }
 
 .br {
@@ -84,12 +133,31 @@
       -ms-flex-align: center;
           align-items: center;
   border-radius: 50%;
-  background-color: grey;
+  background-color: #262f38;
 }
 
 .btn {
   border-radius: 2em;
+  height: 90%;
   background-color: #fb7413;
   border: none;
+  color: white;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+}
+
+@media all and (max-width: 1440px) {
+  .main {
+    min-width: 30%;
+  }
+}
+
+@media all and (max-width: 375px) {
+  .main {
+    min-width: 90%;
+  }
+  .main__feedback-box {
+    min-width: 80%;
+  }
 }
 /*# sourceMappingURL=main.css.map */

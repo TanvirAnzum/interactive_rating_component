@@ -1,20 +1,22 @@
 // default code
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700&display=swap");
 
 * {
   max-width: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Overpass", sans-serif;
 }
 
 // variables
 
 //color
-
-$grey-md: hsl(216, 12%, 54%);
+$orange: hsl(25, 97%, 53%);
+$grey-md: #7c8898;
 $grey-lt: hsl(217, 12%, 63%);
-$blue-dk: hsl(213, 19%, 18%);
-$blue-vdk: hsl(216, 12%, 8%);
+$blue-dk: #1f2630;
+$blue-vdk: #262f38;
 $white: hsl(0, 0%, 100%);
 
 // font size
@@ -41,6 +43,7 @@ $bold: 700;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #141519;
 
   .main {
     width: 24%;
@@ -61,17 +64,55 @@ $bold: 700;
     &__rating {
       display: flex;
       justify-content: space-between;
+
+      &-number {
+        color: $grey-lt;
+        font-weight: 600;
+      }
+
+      &-number:hover {
+        cursor: pointer;
+        background-color: $orange;
+        color: $white;
+      }
+      &-selected {
+        background-color: $grey-md;
+        color: $white;
+      }
+    }
+
+    &__feedback {
+      width: 85%;
+      height: 85%;
+      display: none;
+      grid-template-rows: auto auto auto auto;
+      justify-content: space-around;
+      text-align: center;
+
+      img {
+        justify-self: center;
+      }
+      &-box {
+        justify-self: center;
+        width: 60%;
+        height: fit-content;
+        padding: 0.5em;
+        border: none;
+        color: $orange;
+        border-radius: 1.5em;
+        background-color: #262f38;
+      }
     }
   }
 }
 
 // utility
 .fs-reg {
-  @include fs($grey-lt, $reg, 1.5em, 1.125em, 0.8em);
+  @include fs($grey-lt, $reg, 1.5em, 0.8em, 1em);
 }
 
 .fs-lg {
-  @include fs($white, $bold, 4em, 2em, 3.5em);
+  @include fs($white, $bold, 3em, 1.5em, 2em);
 }
 
 .br {
@@ -85,11 +126,32 @@ $bold: 700;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background-color: grey;
+  background-color: $blue-vdk;
 }
 
 .btn {
   border-radius: 2em;
+  height: 90%;
   background-color: hsl(25, 97%, 53%);
   border: none;
+  color: $white;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+}
+
+@media all and (max-width: 1440px) {
+  .main {
+    min-width: 30%;
+  }
+}
+
+@media all and (max-width: 375px) {
+  .main {
+    min-width: 90%;
+    &__feedback {
+      &-box {
+        min-width: 80%;
+      }
+    }
+  }
 }
